@@ -176,9 +176,9 @@
 // }
 'use client'
 import { useSearchParams } from 'next/navigation'
-import { useMemo, useState } from 'react'
+import { useMemo, useState, Suspense } from 'react'
 
-export default function Results() {
+function ResultsContent() {
   const params = useSearchParams()
   const aiOutput = params.get('aiOutput') || "No guidance received. Try again 🚀"
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -303,5 +303,14 @@ export default function Results() {
         </button>
       </footer>
     </div>
+  )
+}
+
+// ✅ Wrap in Suspense to fix Vercel build error
+export default function Results() {
+  return (
+    <Suspense fallback={<div className="p-6 text-center text-white">Loading results...</div>}>
+      <ResultsContent />
+    </Suspense>
   )
 }

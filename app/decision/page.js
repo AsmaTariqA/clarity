@@ -123,25 +123,25 @@ export default function DecisionForm() {
     }
   }
 
-  const fillTestData = () => {
-    setForm({
-      pastExperiences: 'I studied computer science and worked on multiple projects.',
-      currentSituation: 'Currently working remotely and learning new skills.',
-      currentChallenges: 'Time management and prioritizing tasks are tough.',
-      decision: 'Should I take a new job offer in AI?',
-      priorities: ['Learning', 'Growth'],
-      whyItMatters: 'I want to grow my career and skills.',
-      learningStyle: 'Hands-on and project-based',
-      pros: ['Good pay', 'Career growth'],
-      cons: ['Time-consuming', 'Stressful'],
-      gutFeeling: 7,
-      alignment: 8,
-      risk: 'Medium',
-      futureAspirations: 'Become an AI specialist and lead projects.',
-      impactSuccess: 'Career advancement and financial stability.',
-      impactFailure: 'Need to re-evaluate career path but will learn from experience.'
-    })
-  }
+  // const fillTestData = () => {
+  //   setForm({
+  //     pastExperiences: 'I studied computer science and worked on multiple projects.',
+  //     currentSituation: 'Currently working remotely and learning new skills.',
+  //     currentChallenges: 'Time management and prioritizing tasks are tough.',
+  //     decision: 'Should I take a new job offer in AI?',
+  //     priorities: ['Learning', 'Growth'],
+  //     whyItMatters: 'I want to grow my career and skills.',
+  //     learningStyle: 'Hands-on and project-based',
+  //     pros: ['Good pay', 'Career growth'],
+  //     cons: ['Time-consuming', 'Stressful'],
+  //     gutFeeling: 7,
+  //     alignment: 8,
+  //     risk: 'Medium',
+  //     futureAspirations: 'Become an AI specialist and lead projects.',
+  //     impactSuccess: 'Career advancement and financial stability.',
+  //     impactFailure: 'Need to re-evaluate career path but will learn from experience.'
+  //   })
+  // }
 
   return (
     <div className="min-h-screen flex items-center justify-center p-3 sm:p-4 md:p-6 lg:p-8 font-mono bg-gradient-to-br from-[#1A1A1D] via-[#3B1C32] to-[#6A1E55] text-white">
@@ -441,13 +441,13 @@ export default function DecisionForm() {
                   </button>
                 ) : <div className="hidden sm:block" />}
                 
-                <button 
+                {/* <button 
                   type="button" 
                   onClick={fillTestData} 
                   className="w-full sm:w-auto text-xs sm:text-sm underline text-[#A64D79] hover:text-white transition order-3 sm:order-2"
                 >
                   Fill test data
-                </button>
+                </button> */}
               </div>
 
               {step < 6 ? (
