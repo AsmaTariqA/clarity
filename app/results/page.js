@@ -183,7 +183,6 @@ export default function Results() {
   const aiOutput = params.get('aiOutput') || "No guidance received. Try again 🚀"
   const [currentIndex, setCurrentIndex] = useState(0)
   
-  // Split output by section headers
   const messages = useMemo(() => {
     const lines = aiOutput.split("\n")
     let msgs = []

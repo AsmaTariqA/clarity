@@ -32,13 +32,18 @@ export default function HomePage() {
     };
   }, [isMobile]);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentCommand((prev) => (prev + 1) % commands.length);
-      setTerminalText(commands[currentCommand]);
-    }, 2000);
-    return () => clearInterval(interval);
-  }, [currentCommand]);
+ useEffect(() => {
+  const interval = setInterval(() => {
+    setCurrentCommand((prev) => {
+      const nextIndex = (prev + 1) % commands.length;
+      setTerminalText(commands[nextIndex]); 
+      return nextIndex;
+    });
+  }, 2000);
+
+  return () => clearInterval(interval);
+}, [commands]); 
+
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#1A1A1D] via-[#3B1C32] to-[#6A1E55] text-white font-mono relative overflow-hidden">
@@ -98,7 +103,7 @@ export default function HomePage() {
             rel="noreferrer"
             className="text-white/60 hover:text-[#A64D79] transition-all duration-300 text-xs sm:text-sm border border-white/20 px-2 sm:px-3 py-1 rounded-lg hover:bg-white/10 self-start sm:self-auto"
           >
-            github://AsmaTariqA
+            github/AsmaTariqA
           </a>
         </div>
       </header>
@@ -141,7 +146,7 @@ export default function HomePage() {
             <p className="text-sm sm:text-base md:text-lg text-white/70 mb-6 sm:mb-8 max-w-md sm:max-w-xl md:max-w-2xl mx-auto font-light leading-relaxed px-2 sm:px-0">
               Warning: May cause overconfidence in decisions.
               <br className="hidden sm:block" />
-              <span className="text-[#A64D79]">// </span>
+             
               Make smarter career moves with AI guidance.
             </p>
 
